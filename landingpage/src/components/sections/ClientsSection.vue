@@ -1,16 +1,18 @@
 <script>
+import GreencrossImage from '../../assets/Greencross.jpg';
+
 export default {
     name: 'ClientsSection',
     data() {
         return {
             cards: [
                 {
-                    imageUrl: 'http://via.placeholder.com/640x360',
+                    imageUrl: GreencrossImage,
                     title: 'GreenCross Inc.',
                     description: 'One of the top businesses committed to providing premium health and wellness goods is GreenCross Incorporated. Offering a variety of goods intended to improve and encourage a healthier lifestyle, GreenCross has made a name for itself in the market because to its dedication to innovation and client satisfaction.',
                 },
                 {
-                    imageUrl: 'https://via.placeholder.com/800x400',
+                    imageUrl: 'http://via.placeholder.com/800x400',
                     title: 'Kerry Logistikus',
                     description: 'Dynamic logistics firm Kerry Logistikus is renowned for its all- inclusive and effective supply chain solutions. Kerry Logistikus, a logistics and distribution specialist, is essential to the smooth flow of goods, on-time delivery, and overall supply chain process optimization.',
                 },
@@ -22,7 +24,19 @@ export default {
 
 <template>
     <div class="container-fluid text-center">
-        <h1 style="color: antiquewhite;">Clients of Ro-Ed Logistics and Service</h1>
+        <div class="header">
+            <div class="logo-and-title">
+                <img
+                src="../../assets/company_logo.png"
+                height="50"
+                alt="company logo"
+                />
+                <h1 style="color: antiquewhite;">Clients of Ro-Ed Logistics and Service</h1>
+                <div class="header-border"></div>
+            </div>
+        </div>
+
+
         <div class="carousel-wrapper">
             <div class="carousel-container">
                 <div id="carouselAutoplay" class="carousel slide carousel-fade" data-bs-ride="carousel">
@@ -30,7 +44,7 @@ export default {
                         <div class="card">
                             <img :src="card.imageUrl" class="card-img-top" :alt="'Card Image ' + index">
                             <div class="card-body">
-                                <h5 class="card-title">{{ card.title }}</h5>
+                                <h3 class="card-title">{{ card.title }}</h3>
                                 <p class="card-text">{{ card.description }}</p>
                             </div>
                         </div>
@@ -51,30 +65,63 @@ export default {
 </template>
 
 <style scoped>
-.carousel-wrapper {
-    position: relative;
-    display: flex;
-    justify-content: center;
-}
+    .header {
+        padding-top: 30px;
+        padding-bottom: 20px;
+        margin-bottom: 20px;
+        border-bottom: 2px solid #ccc;
+        display: flex;
+        flex-direction: column;
+        text-shadow: 2px 2px 10px black;
+        font-weight: bold;
+    }
 
-.carousel-container {
-    width: 80%;
-    max-width: 100vh;
-    flex: 0 0 auto;
-}
+    .logo-and-title {
+        display: inline-block; 
+        align-items: center;
 
-.carousel-control-prev,
-.carousel-control-next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-}
+    }
 
-.carousel-control-prev {
-    left: 0;
-}
+    .logo-and-title img {
+        vertical-align: middle;
+        margin-right: 10px;
+    }
 
-.carousel-control-next {
-    right: 0;
-}
+    .logo-and-title h1 {
+        display: inline;
+        vertical-align: middle;
+        margin: 0;
+    }
+
+    .carousel-wrapper {
+        position: relative;
+        display: flex;
+        justify-content: center;
+    }
+
+    .carousel-container {
+        width: 80%;
+        max-width: 100vh;
+        flex: 0 0 auto;
+    }
+
+    .carousel-control-prev,
+    .carousel-control-next {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .carousel-control-prev {
+        left: 0;
+    }
+
+    .carousel-control-next {
+        right: 0;
+    }
+        .card-img-top {
+        max-width: 100%; 
+        max-height: 500px; 
+        object-fit: contain; 
+    }
 </style>

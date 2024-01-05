@@ -1,4 +1,3 @@
-import './assets/main.css'
 import 'bootstrap/dist/js/bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '@popperjs/core/dist/umd/popper.js';

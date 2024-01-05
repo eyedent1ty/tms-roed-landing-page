@@ -9,7 +9,7 @@ export default {
         <div class="row">
             <div class="bg">
                 <div class="main-text">
-                    <h1>
+                    <h1 style="color: antiquewhite;">
                         Welcome to Ro-Ed Logistics and Services: Your trusted Partner in Efficient Trucking Solutions
                     </h1>
                 </div>
@@ -24,8 +24,7 @@ export default {
                     class="btn btn-success" 
                     tabindex="-1" 
                     role="button">
-                    Contact Us Now!
-                    UWU
+                    <h4>CONTACT US NOW!</h4>
                 </a>
             </div>
         </div>
@@ -67,6 +66,7 @@ export default {
         color: white;
         text-shadow: 2px 2px 10px black;
         font-weight: bold;
+        padding: 10px;
     }
 
     .bg {

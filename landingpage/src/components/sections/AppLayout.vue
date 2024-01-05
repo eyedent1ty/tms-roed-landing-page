@@ -47,23 +47,26 @@ export default {
 
 <template>
     <div>
-    <NavBar id="navBar" />
-    <div id="homeSection" class="section">
-        <HomeSection />
-    </div>
-    <div id="aboutUsSection" class="section">
-        <AboutUsSection />
-    </div>
-    <div id="clientsSection" class="section">
-        <ClientsSection />
-    </div>
-    <div id="contactSection" class="section">
-        <ContactSection />
-    </div>
-    <transition name="fab-fade" mode="out-in">
-        <FloatingActionButton v-if="fabVisible" @scroll-to-top="scrollToTop"/>
-    </transition>
-    <Footer />
+        <NavBar id="navBar" class="navbar" />
+
+        <div id="homeSection" class="section">
+            <HomeSection />
+        </div>
+        <div id="aboutUsSection" class="section">
+            <AboutUsSection />
+        </div>
+        <div id="clientsSection" class="section">
+            <ClientsSection />
+        </div>
+        <div id="contactSection" class="section">
+            <ContactSection />
+        </div>
+
+        <transition name="fab-fade" mode="out-in">
+            <FloatingActionButton v-if="fabVisible" @scroll-to-top="scrollToTop"/>
+        </transition>
+
+        <Footer />
     </div>
 </template>
 
@@ -88,6 +91,10 @@ export default {
 
 #homeSection, #clientsSection {
     background-color: #041421;
+}
+
+.navbar {
+    background-color: #4C7273;
 }
 
 .fab-fade-enter-active,
