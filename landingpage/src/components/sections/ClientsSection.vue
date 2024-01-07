@@ -1,5 +1,6 @@
 <script>
 import GreencrossImage from '../../assets/Greencross.jpg';
+import KerryLogistics from '../../assets/Kerry-1.jpg';
 
 export default {
     name: 'ClientsSection',
@@ -12,7 +13,7 @@ export default {
                     description: 'One of the top businesses committed to providing premium health and wellness goods is GreenCross Incorporated. Offering a variety of goods intended to improve and encourage a healthier lifestyle, GreenCross has made a name for itself in the market because to its dedication to innovation and client satisfaction.',
                 },
                 {
-                    imageUrl: 'http://via.placeholder.com/800x400',
+                    imageUrl: KerryLogistics,
                     title: 'Kerry Logistikus',
                     description: 'Dynamic logistics firm Kerry Logistikus is renowned for its all- inclusive and effective supply chain solutions. Kerry Logistikus, a logistics and distribution specialist, is essential to the smooth flow of goods, on-time delivery, and overall supply chain process optimization.',
                 },
@@ -101,8 +102,21 @@ export default {
 
     .carousel-container {
         width: 80%;
-        max-width: 100vh;
+        max-width: 100vw;
         flex: 0 0 auto;
+    }
+
+    .card {
+        height: 100%;
+        width: 100%; 
+    }
+
+    .card-img-top {
+        width: 80%; 
+        height: auto; 
+        object-fit: cover; 
+        margin: 0 auto; 
+        display: block; 
     }
 
     .carousel-control-prev,
@@ -118,10 +132,5 @@ export default {
 
     .carousel-control-next {
         right: 0;
-    }
-        .card-img-top {
-        max-width: 100%; 
-        max-height: 500px; 
-        object-fit: contain; 
     }
 </style>

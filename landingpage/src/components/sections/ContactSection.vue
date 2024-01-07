@@ -35,7 +35,7 @@ export default {
                             <ContactIcon /> 09123456789
                         </li>
                         <li>
-                            <EmailIcon /> roedlogisticsandservices@gmail.com
+                            <EmailIcon /> <a href="mailto:roedlogisticsandservices@gmail.com">roedlogisticsandservices@gmail.com</a>
                         </li>
                     </ul>
                 </div>         

@@ -25,7 +25,8 @@ export default {
         }
     },
     mounted() {
-        window.addEventListener("scroll", this.onScroll)
+        window.addEventListener("scroll", this.onScroll),
+        this.createObserver();
     },
     beforeDestroy() {
         window.removeEventListener("scroll", this.onScroll)
@@ -40,6 +41,23 @@ export default {
         onScroll(e) {
             this.windowTop = window.scrollY;
             this.fabVisible = this.windowTop > 300;
+        },
+        createObserver(){
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    console.log(entry)
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('show');
+                    }
+                    else {
+                        entry.target.classList.remove('show');
+                    }
+                });
+            })
+
+            const hiddenElements = document.querySelectorAll('.hidden');
+
+            hiddenElements.forEach((el) => observer.observe(el));
         }
     }
 };
@@ -49,18 +67,21 @@ export default {
     <div>
         <NavBar id="navBar" class="navbar" />
 
-        <div id="homeSection" class="section">
+        <section id="homeSection" class="section hidden">
             <HomeSection />
-        </div>
-        <div id="aboutUsSection" class="section">
+        </section>
+
+        <section id="aboutUsSection" class="section hidden">
             <AboutUsSection />
-        </div>
-        <div id="clientsSection" class="section">
+        </section>
+
+        <section id="clientsSection" class="section hidden">
             <ClientsSection />
-        </div>
-        <div id="contactSection" class="section">
+        </section>
+
+        <section id="contactSection" class="section hidden">
             <ContactSection />
-        </div>
+        </section>
 
         <transition name="fab-fade" mode="out-in">
             <FloatingActionButton v-if="fabVisible" @scroll-to-top="scrollToTop"/>
@@ -70,10 +91,11 @@ export default {
     </div>
 </template>
 
-<style scoped>
+<style>
+
 .section {
     height: 100vh;
-    background-color: grey;
+    background-color: #041421;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -82,15 +104,19 @@ export default {
 
 #contactSection {
     height: 50vh;
-    background-color: grey;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 24px;
 }
 
-#homeSection, #clientsSection {
-    background-color: #041421;
+.hidden {
+    opacity: 0;
+    filter: blur(5px);
+    transform: translateX(-100%);
+    transition: all 2s;
+}
+
+.show {
+    opacity: 1;
+    filter: blur(0px);
+    transform: translateX(0%);
 }
 
 .navbar {
@@ -108,6 +134,14 @@ export default {
 
 .fab-fade-enter-to, .fab-fade-leave {
   opacity: 1;
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    margin-top: .5rem;
+    margin-bottom: .5rem;
+    font-weight: 500;
+    line-height: 1.2;
+    color: var(--bs-heading-color);
 }
 </style>
 
